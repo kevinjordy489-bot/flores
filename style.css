@@ -1,0 +1,507 @@
+   * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background: radial-gradient(ellipse at center, #2b0a0a 0%, #120505 45%, #050202 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      font-family: 'Georgia', serif;
+      color: #ffcccc;
+      user-select: none;
+    }
+
+    .title {
+      text-align: center;
+      margin-bottom: 1.8rem;
+      z-index: 10;
+    }
+
+    .title h1 {
+      font-size: clamp(1.9rem, 5vw, 3.1rem);
+      letter-spacing: 0.18em;
+      color: #ff6b6b;
+      text-shadow: 
+        0 0 12px #ff2222,
+        0 0 28px #ff0000,
+        0 0 50px #aa0000;
+      margin-bottom: 0.35rem;
+    }
+
+    .title p {
+      font-size: 1rem;
+      font-style: italic;
+      color: #ffaaaa;
+      opacity: 0.9;
+      letter-spacing: 0.04em;
+    }
+
+    .instruction {
+      font-size: 0.82rem;
+      color: #ff7777;
+      margin-top: 0.6rem;
+      opacity: 0.65;
+    }
+
+    .garden {
+      position: relative;
+      width: 100%;
+      max-width: 980px;
+      height: 460px;
+      background: radial-gradient(circle at center, transparent, transparent);
+      box-shadow: none;
+    }
+
+
+   /* Sombras suaves en los pétalos */
+      .petala, .petalb, .petalc {
+      box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+      }
+      .stem {
+      box-shadow: 0 6px 10px rgba(0,0,0,0.4);
+      }
+
+      .leaf {
+      box-shadow: 0 4px 6px rgba(0,0,0,0.5);
+      }
+
+            @keyframes shadowPulse {
+            0%   { filter: drop-shadow(0 6px 10px rgba(255,0,0,0.6)); }
+            50%  { filter: drop-shadow(0 6px 14px rgba(0,0,255,0.6)); }
+            100% { filter: drop-shadow(0 6px 10px rgba(255,0,0,0.6)); }
+          }
+
+          .flower {
+            animation: shadowPulse 12s infinite alternate;
+          }
+
+
+    /* ========== FLOR ========== */
+    .flower {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: grab;
+      z-index: 5;
+      filter: drop-shadow(0 8px 12px rgba(0,0,0,0.6));
+    }
+
+    .flower:active {
+      cursor: grabbing;
+      z-index: 30;
+      filter: brightness(1.15);
+    }
+
+/* =========================================
+   TAMAÑO Y POSICIÓN DE CADA RAMO
+========================================= */
+
+              .flower-1 {
+                  left: 206.939px;
+                  bottom: 20px;
+                  transform: translateY(-59px) scale(1.30) rotate(-7deg);
+              }
+
+              .flower-2 {
+                  left: 541.078px;
+                  bottom: 70px;
+                  transform: translateY(-235px) scale(0.78) rotate(5deg);
+              }
+
+              .flower-3 {
+                  left: 304.055px;
+                  bottom: 15px;
+                  transform: translateY(-187px) scale(1.20) rotate(-4deg);
+              }
+
+              .flower-4 {
+                  left: 606.075px;
+                  bottom: 75px;
+                  transform: translateY(-64px) scale(0.72) rotate(8deg);
+              }
+
+              .flower-5 {
+                  left: 385.172px;
+                  bottom: 35px;
+                  transform: translateY(-16px) scale(1.05) rotate(-6deg);
+              }
+
+              .flower-6 {
+                  left: 495.521px;
+                  bottom: 80px;
+                  transform: translateY(-48px) scale(0.65) rotate(6deg);
+              }
+
+              .flower-7 {
+                  left: 419px;
+                  bottom: 80px;
+                  transform: translateY(-254px) scale(0.65) rotate(-8deg);
+              }
+
+
+    /* Contenedor de pétalos */
+    .petals {
+      position: relative;
+      width: 90px;
+      height: 90px;
+      pointer-events: none;
+    }
+
+    /* Pétalos más orgánicos y redondeados flor normal */
+    .petala {
+      position: absolute;
+      width: 40px;
+      height: 45px;
+      background: radial-gradient(
+        ellipse at 80% 0%,
+        #ff9a9a 0%,
+        #ad0f0f 45%,
+        #cc0000 80%,
+        #350f0f 100%
+      );
+      border-radius: 50% 50% 45% 45% / 65% 65% 35% 35%;
+      box-shadow:
+        0 0 18px rgba(78, 20, 20, 0.9),
+        0 0 35px rgba(255, 0, 0, 0.6),
+        inset 0 0 12px rgba(255, 180, 180, 0.35);
+      transform-origin: 50% 90%;
+    }
+
+    /* Distribución de los 6 pétalos flor normal */
+    .petala:nth-child(1) { top: 12%;  left: 32px; transform: rotate(0deg); }
+    .petala:nth-child(2) { top: 12px; left: 40px; transform: rotate(60deg); }
+    .petala:nth-child(3) { top: 30px; left: 40px; transform: rotate(120deg); }
+    .petala:nth-child(4) { top: 26px; left: 29px; transform: rotate(180deg); }
+    .petala:nth-child(5) { top: 25px; left: 20px;  transform: rotate(240deg); }
+    .petala:nth-child(6) { top: 8px;  left: 24px; transform: rotate(300deg); }
+
+    
+    /* Pétalos más orgánicos y redondeados flor normal */
+        .petalb {
+      position: absolute;
+      width: 20px;
+      height: 23px;
+      background: radial-gradient(
+        ellipse at 80% 0%,
+        #ff9a9a 0%,
+        #ad0f0f 45%,
+        #cc0000 80%,
+        #350f0f 100%
+      );
+      border-radius: 50% 50% 45% 45% / 65% 65% 35% 35%;
+      box-shadow:
+        0 0 18px rgba(10, 10, 10, 0.9),
+        0 0 35px rgba(255, 0, 0, 0.6),
+        inset 0 0 12px rgba(255, 180, 180, 0.35);
+      transform-origin: 50% 90%;
+    }
+
+    /* Distribución de los 16 pétalos flor normal */
+    .petalb:nth-child(16) { top: 34px; left: 40px; transform: rotate(0deg); }
+    .petalb:nth-child(15) { top: 42px; left: 48px; transform: rotate(90deg); }
+    .petalb:nth-child(14) { top: 50px; left: 40px; transform: rotate(180deg); }
+    .petalb:nth-child(13) { top: 41px; left: 31px; transform: rotate(-90deg); }
+    .petalb:nth-child(12) { top: 34px; left: 50px; transform: rotate(55deg); }
+    .petalb:nth-child(11) { top: 48px; left: 30px; transform: rotate(240deg); }
+    .petalb:nth-child(10) { top: 50px; left: 47px; transform: rotate(120deg); }
+    .petalb:nth-child(9) { top: 30px; left: 31px; transform: rotate(-55deg); }
+    .petalb:nth-child(8) { top: 57px; left: 47px; transform: rotate(150deg); }
+    .petalb:nth-child(7) { top: 57px; left: 33px;  transform: rotate(220deg); }
+    .petalb:nth-child(6) { top: 27px;  left: 48px; transform: rotate(40deg); }
+    .petalb:nth-child(5) { top: 27%;  left: 34px; transform: rotate(-30deg); }
+    .petalb:nth-child(4) { top: 38px; left: 60px; transform: rotate(75deg); }
+    .petalb:nth-child(3) { top: 32px; left: 24px;  transform: rotate(-75deg); }
+    .petalb:nth-child(2) { top: 51px;  left: 60px; transform: rotate(125deg); }
+    .petalb:nth-child(1) { top: 49%;  left: 22px; transform: rotate(-125deg); }
+
+
+
+    /* Pétalos más orgánicos y redondeados flor normal */
+        .petalc {
+      position: absolute;
+      width: 20px;
+      height: 23px;
+      background: radial-gradient(
+        ellipse at 80% 0%,
+        #ff9a9a 0%,
+        #ad0f0f 45%,
+        #cc0000 80%,
+        #350f0f 100%
+      );
+      border-radius: 50% 50% 45% 45% / 65% 65% 35% 35%;
+      box-shadow:
+        0 0 18px rgba(10, 10, 10, 0.9),
+        0 0 35px rgba(255, 0, 0, 0.6),
+        inset 0 0 12px rgba(255, 180, 180, 0.35);
+      transform-origin: 50% 90%;
+    }
+   /* Distribución de los 8 pétalos flor normal */
+    .petalc:nth-child(8) { top: 34px; left: 40px; transform: rotate(0deg); }
+    .petalc:nth-child(7) { top: 42px; left: 48px; transform: rotate(90deg); }
+    .petalc:nth-child(6) { top: 50px; left: 40px; transform: rotate(180deg); }
+    .petalc:nth-child(5) { top: 41px; left: 31px; transform: rotate(-90deg); }
+    .petalc:nth-child(4) { top: 34px; left: 50px; transform: rotate(55deg); }
+    .petalc:nth-child(3) { top: 48px; left: 30px; transform: rotate(240deg); }
+    .petalc:nth-child(2) { top: 50px; left: 47px; transform: rotate(120deg); }
+    .petalc:nth-child(1) { top: 30px; left: 31px; transform: rotate(-55deg); }
+
+
+            /* Animación LED */
+@keyframes ledGlow {
+  0% {
+    background: radial-gradient(
+      ellipse at 80% 0%,
+      #e6ccff 0%,
+      #b366ff 45%,
+      #8000cc 80%,
+      #0d0614 100%
+    );
+    filter: drop-shadow(0 0 8px #b366ff);
+  }
+
+  33% {
+    background: radial-gradient(
+      ellipse at 80% 0%,
+      #c77dff 0%,
+      #8000cc 45%,
+      #4b0082 80%,
+      #08000d 100%
+    );
+    filter: drop-shadow(0 0 12px #8000cc);
+  }
+
+  66% {
+    background: radial-gradient(
+      ellipse at 80% 0%,
+      #6b3a80 0%,
+      #301044 45%,
+      #160a20 80%,
+      #000000 100%
+    );
+    filter: drop-shadow(0 0 12px #4b0082);
+  }
+
+  100% {
+    background: radial-gradient(
+      ellipse at 80% 0%,
+      #e6ccff 0%,
+      #b366ff 45%,
+      #8000cc 80%,
+      #0d0614 100%
+    );
+    filter: drop-shadow(0 0 8px #b366ff);
+  }
+}
+
+        /* Aplica la animación a los pétalos */
+            .petala {
+              animation: ledGlow 15s infinite alternate;
+              animation-delay: 0s;   /* empieza en el primer color */
+            }
+
+            .petalb {
+              animation: ledGlow 15s infinite alternate;
+              animation-delay: -3.75s; /* empieza en el segundo color */
+            }
+
+            .petalc {
+              animation: ledGlow 15s infinite alternate;
+              animation-delay: -7.5s; /* empieza en el tercer color */
+            }
+
+
+
+    /* Centro de la flor (brillante) */
+    .center {
+      position: absolute;
+      top: 68%;
+      left: 55%;
+      width: 15px;
+      height: 17px;
+      background: radial-gradient(circle, #ffdd88 0%, #ff8800 60%, #cc4400 100%);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow:
+        0 0 14px #ffaa00,
+        0 0 28px rgba(255, 150, 0, 0.7);
+      z-index: 5;
+    }
+
+    /* Tallo */
+    .stem {
+      width: 5px;
+      height: 130px;
+      background: linear-gradient(to bottom, #ff0800, #f36a52);
+      border-radius: 1px;
+      position: relative;
+      margin-top: -8px;
+      box-shadow: 0 0 10px rgba(255, 8, 8, 0.5);
+      pointer-events: none;
+    }
+
+    /* =========================================================
+   PASTO EN LA BASE DE CADA RAMO
+========================================================= */
+
+.grass {
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    width: 65px;
+    height: 35px;
+    transform: translateX(-50%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Cada hoja de pasto */
+.grass span {
+    position: absolute;
+    bottom: 0;
+    width: 5px;
+    height: 25px;
+    background: linear-gradient(
+        to top,
+        #123d24,
+        #287a3d,
+        #55a85b
+    );
+    border-radius: 100% 0 100% 0;
+    transform-origin: bottom center;
+}
+
+/* Distribución del pasto */
+        .grass span:nth-child(1) {
+            left: 21px;
+            height: 20px;
+            transform: rotate(-35deg);
+        }
+
+        .grass span:nth-child(2) {
+            left: 24px;
+            height: 28px;
+            transform: rotate(-22deg);
+        }
+
+        .grass span:nth-child(3) {
+            left: 27px;
+            height: 23px;
+            transform: rotate(-10deg);
+        }
+
+        .grass span:nth-child(4) {
+            left: 29px;
+            height: 31px;
+            transform: rotate(0deg);
+        }
+
+        .grass span:nth-child(5) {
+            left: 32px;
+            height: 25px;
+            transform: rotate(10deg);
+        }
+
+        .grass span:nth-child(6) {
+            left: 35px;
+            height: 30px;
+            transform: rotate(22deg);
+        }
+
+        .grass span:nth-child(7) {
+            left: 39px;
+            height: 20px;
+            transform: rotate(35deg);
+        }
+
+    /* Hojas alargadas y ovaladas */
+    .leaf {
+      position: absolute;
+      left: 200%;
+      width: 12px;
+      height: 50px;
+      background: linear-gradient(to right, #ff0000, #f35221);
+      border-radius: 50% 50% 50% 50% / 85% 85% 15% 15%;
+      box-shadow: 0 0 7px rgba(59, 26, 18, 0.4);
+      pointer-events: none;
+    }
+
+    .leaf.left {
+      left: -20px;
+      top: 28%;
+      transform: rotate(-32deg);
+      background: linear-gradient(to right, #ff0000, #f35221);
+    }
+
+    .leaf.right {
+      right: -40px;
+      top: 48%;
+      transform: rotate(32deg) scaleX(-1); 
+      background: linear-gradient(to right, #ff0000, #f35221);
+    }
+
+    /* Corazones flotantes */
+      .heart {
+        position: absolute;   /* antes estaba relative */
+        bottom: 0;            /* arranca desde abajo */
+        width: 11px;
+        height: 11px;
+        background: #ff4466;
+        transform: rotate(45deg);
+        opacity: 0.75;
+        animation: float-up 8s ease-in infinite;
+        box-shadow: 0 0 9px #ff2244;
+        pointer-events: none;
+      }
+
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 11px;
+      height: 11px;
+      background: #ff4466;
+      border-radius: 50%;
+    }
+
+    .heart::before { top: -5.5px; left: 0; }
+    .heart::after  { top: 0; left: -5.5px; }
+
+    .heart:nth-child(1) { left: 10%; animation-delay: 0s; }
+    .heart:nth-child(2) { left: 20%; animation-delay: 1s; }
+    .heart:nth-child(3) { left: 30%; animation-delay: 2s; }
+    .heart:nth-child(4) { left: 40%; animation-delay: 0s; }
+    .heart:nth-child(5) { left: 50%; animation-delay: 1s; }
+    .heart:nth-child(6) { left: 60%; animation-delay: 2s; }
+    .heart:nth-child(7) { left: 70%; animation-delay: 0s; }
+    .heart:nth-child(8) { left: 80%; animation-delay: 1s; }
+    .heart:nth-child(9) { left: 25%; animation-delay: 2s; }
+    .heart:nth-child(10) { left: 75%; animation-delay: 0s; }
+
+    @keyframes float-up {
+      0% {
+        transform: translateY(0) rotate(45deg) scale(0.5);
+        opacity: 0;
+      }
+      12% { opacity: 0.8; }
+      100% {
+        transform: translateY(-440px) rotate(45deg) scale(1.15);
+        opacity: 0;
+      }
+    }
+
+
+    .glow {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 75%, rgba(255, 25, 25, 0.13), transparent 65%);
+      pointer-events: none;
+      z-index: 1;
+    }
